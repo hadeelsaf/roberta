@@ -12,7 +12,7 @@ pipeline {
         }
         stage('Trigger Deploy') {
              steps {
-                build job: '<deploy-job-name>', wait: false, parameters: [
+                build job: 'RobertaDeploy', wait: false, parameters: [
                 string(name: 'ROBERTA_IMAGE_URL', value: "<full-url-to-docker-image>")
                 ]
             }
