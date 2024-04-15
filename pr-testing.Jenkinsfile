@@ -3,6 +3,10 @@ pipeline {
 
     stages {
         stage('Unittest') {
+            post {
+                always {
+                    junit allowEmptyResults: true, testResults: 'results.xml'
+                }
             steps {
                 echo "testing"
             }
