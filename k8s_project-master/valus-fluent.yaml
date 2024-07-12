@@ -1,0 +1,19 @@
+#configMapConfigs:
+#  - fluentd-prometheus-conf
+plugins:
+  - fluent-plugin-cloudwatch-logs
+
+fileConfigs:
+  04_outputs.conf: |-
+    <label @OUTPUT>
+      <match **>
+        @type cloudwatch_logs
+        
+        region us-east-2
+        log_group_name eden27-fluend
+        log_stream_name stram-eden
+
+        auto_create_stream true
+        auto_create_group true
+      </match>
+    </label>
